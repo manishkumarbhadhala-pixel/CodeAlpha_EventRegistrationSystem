@@ -3,6 +3,7 @@ require('dotenv').config();
 const pool = require('./config/db');
 const app = express();
 const eventRoutes = require('./routes/eventsRoutes');
+const registrationRoutes = require('./routes/registrationRoutes');
 
 app.use(express.json());
 
@@ -13,6 +14,7 @@ app.get('/',(req,res)=>{
 });
 
 app.use('/',eventRoutes);
+app.use('/', registrationRoutes);
 
 app.listen(PORT,()=>{
     console.log(`server is running on port ${PORT}`);
